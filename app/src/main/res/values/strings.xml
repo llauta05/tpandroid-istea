@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">tp-android</string>
+    <string name="agregar">agregar</string>
+    <string name="Guardar">Guardar</string>
 </resources>
