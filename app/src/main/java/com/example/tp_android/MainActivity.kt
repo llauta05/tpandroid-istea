@@ -43,13 +43,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupToolbar() {
-        setSupportActionBar(toolbar)
-        supportActionBar?.title = "Ropas"
+//        setSupportActionBar(toolbar)
+//        supportActionBar?.title = "Ropas"
     }
 
     private fun setupUI() {
         rvRopa = findViewById(R.id.rvRopa)
-        toolbar = findViewById(R.id.toolbar)
+       // toolbar = findViewById(R.id.toolbar)
 
         ropasAdapter = RopaAdapter(ArrayList(), object : OnRopaClickListener {
             override fun onItemClick(ropa: Ropa) {

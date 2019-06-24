@@ -26,8 +26,8 @@ class AgregarRopaActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activiy_agregar_ropa)
 
-        modalidad = intent.extras.getInt(MainActivity.MODALIDAD)
-        ropa = intent.extras.getSerializable(MainActivity.ROPA) as Ropa?
+        modalidad = intent.extras!!.getInt(MainActivity.MODALIDAD)
+        ropa = intent.extras!!.getSerializable(MainActivity.ROPA) as Ropa?
 
         setupUI()
         initializeBtnAgregar()
