@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toolbar
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tp_android.database.DBHelper
 
@@ -43,13 +43,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupToolbar() {
-//        setSupportActionBar(toolbar)
-//        supportActionBar?.title = "Ropas"
+       setSupportActionBar(toolbar)
+       supportActionBar?.title = "Ropas"
     }
 
     private fun setupUI() {
         rvRopa = findViewById(R.id.rvRopa)
-       // toolbar = findViewById(R.id.toolbar)
+        toolbar = findViewById(R.id.toolbar)
 
         ropasAdapter = RopaAdapter(ArrayList(), object : OnRopaClickListener {
             override fun onItemClick(ropa: Ropa) {

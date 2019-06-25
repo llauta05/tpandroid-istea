@@ -46,6 +46,7 @@ class AgregarRopaActivity : AppCompatActivity(){
 
                 finish()
             } else {
+                //Cambiar por otra notificacion
                 Toast.makeText(this, "Completar datos", Toast.LENGTH_LONG).show()
             }
 
