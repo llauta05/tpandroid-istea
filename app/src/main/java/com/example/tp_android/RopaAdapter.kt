@@ -22,6 +22,7 @@ class RopaAdapter(var ropas: List<Ropa>, var listener: OnRopaClickListener)
 
     override fun onBindViewHolder(holder: RopasViewHolder, position: Int) {
         holder.txtNombre.text = ropas[position].nombre
+        holder.txtMarca.text = ropas[position].marca
         holder.txtPrecio.text = ropas[position].precio
         holder.itemView.setOnClickListener {
             listener.onItemClick(ropas[position])
@@ -32,6 +33,7 @@ class RopaAdapter(var ropas: List<Ropa>, var listener: OnRopaClickListener)
     class RopasViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var txtNombre: TextView = view.findViewById(R.id.txtNombre)
         var txtPrecio: TextView = view.findViewById(R.id.txtPrecio)
+        var txtMarca: TextView = view.findViewById(R.id.txtMarca)
     }
 
 }

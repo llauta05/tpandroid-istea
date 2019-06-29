@@ -10,10 +10,11 @@
 
     <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            app:title="@string/nameApp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-    ></androidx.appcompat.widget.Toolbar>
+            android:gravity="top"></androidx.appcompat.widget.Toolbar>
 
 <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvRopa"

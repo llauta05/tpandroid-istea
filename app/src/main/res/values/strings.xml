@@ -1,6 +1,9 @@
 <resources>
-    <string name="app_name">tp-android</string>
+    <string name="app_name">SportShop</string>
     <string name="agregar">agregar</string>
     <string name="Guardar">Guardar</string>
     <string name="modificar">modificar</string>
+    <string name="nameApp">Sport Shop</string>
+    <string name="confirmacion">Ingrese Mail</string>
+    <string name="comprar">Comprar</string>
 </resources>

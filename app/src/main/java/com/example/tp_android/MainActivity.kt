@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupToolbar() {
        setSupportActionBar(toolbar)
-       supportActionBar?.title = "Ropas"
+       supportActionBar?.title = "Sports Shop"
     }
 
     private fun setupUI() {
@@ -53,17 +53,30 @@ class MainActivity : AppCompatActivity() {
 
         ropasAdapter = RopaAdapter(ArrayList(), object : OnRopaClickListener {
             override fun onItemClick(ropa: Ropa) {
-                val alertDialog = AlertDialog.Builder(this@MainActivity)
-                alertDialog.setTitle(ropa.nombre)
-                    .setMessage("El precio es: ${ropa.precio}")
-                    .setPositiveButton("OK", { dialog, _ -> dialog.dismiss() })
-                    .setNeutralButton("MODIFICAR", { dialog, _ -> goToModificar(ropa) })
-                    .setNegativeButton("ELIMINAR", { dialog, _ -> eliminarRopa(ropa) })
-                    .show()
+
+                ConfirmarCompra(ropa)
+
+//                val alertDialog = AlertDialog.Builder(this@MainActivity)
+//                alertDialog.setTitle(ropa.nombre)
+//                    .setMessage("El precio es: ${ropa.precio}")
+//                    .setPositiveButton("OK", { dialog, _ -> dialog.dismiss() })
+//                    .setNeutralButton("MODIFICAR", { dialog, _ -> goToModificar(ropa) })
+//                    .setNegativeButton("ELIMINAR", { dialog, _ -> eliminarRopa(ropa) })
+//                    .show()
             }
 
         })
         rvRopa.adapter = ropasAdapter
+    }
+
+    private fun ConfirmarCompra(ropa: Ropa) {
+
+        val intent = Intent(this, ConfimarCompraActivity::class.java).apply {
+            putExtra(MODALIDAD, MODIFICAR)
+            putExtra(ROPA, ropa)
+        }
+        startActivity(intent)
+
     }
 
     private fun eliminarRopa(ropa: Ropa) {

@@ -18,6 +18,7 @@ class AgregarRopaActivity : AppCompatActivity(){
 
     lateinit var etNombre: EditText
     lateinit var etPrecio: EditText
+    lateinit var etMarca: EditText
     lateinit var btnAccion: Button
     var modalidad: Int = MainActivity.AGREGAR
     var ropa: Ropa? = null
@@ -38,8 +39,7 @@ class AgregarRopaActivity : AppCompatActivity(){
             if (datosCompletos()) {
                 if (modalidad == MainActivity.AGREGAR) {
                     insertarRopa()
-                    createNotificationChannel()
-                    mostrarNotificacion()
+
                 } else {
                     modificarRopa()
                 }
@@ -56,6 +56,7 @@ class AgregarRopaActivity : AppCompatActivity(){
     private fun setupUI() {
         etNombre = findViewById(R.id.etNombre)
         etPrecio = findViewById(R.id.etPrecio)
+        etMarca = findViewById(R.id.etMarca)
         btnAccion = findViewById(R.id.btnAccion)
 
         if (modalidad == MainActivity.AGREGAR) {
@@ -64,59 +65,32 @@ class AgregarRopaActivity : AppCompatActivity(){
             btnAccion.text = getString(R.string.modificar)
             etNombre.setText(ropa?.nombre)
             etPrecio.setText(ropa?.precio)
+            etMarca.setText(ropa?.marca)
         }
-    }
-    private fun mostrarNotificacion() {
-        val builder = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setSmallIcon(R.mipmap.ic_launcher_round)
-            .setContentTitle("Ropas")
-            .setContentText("Se agrego un ropa")
-            .setAutoCancel(true)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-
-        val intent = Intent(this, MainActivity::class.java)
-        val pendingIntent = PendingIntent.getActivity(this@AgregarRopaActivity,
-            0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-        builder.setContentIntent(pendingIntent)
-
-        val managerCompat = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
-        managerCompat.notify(1234, builder.build())
     }
 
     private fun modificarRopa() {
         val db = DBHelper(this)
         ropa?.nombre = etNombre.text.toString()
         ropa?.precio = etPrecio.text.toString()
+        ropa?.marca = etMarca.text.toString()
         db.modificarRopa(ropa!!)
     }
 
     private fun datosCompletos(): Boolean {
         return !etNombre.text.toString().isEmpty() &&
-                !etPrecio.text.toString().isEmpty()
+                !etPrecio.text.toString().isEmpty() &&
+                !etMarca.text.toString().isEmpty()
     }
 
     private fun insertarRopa() {
         val db = DBHelper(this)
         val nombre = etNombre.text.toString()
         val precio = etPrecio.text.toString()
+        val marca = etMarca.text.toString()
 
-        db.insertarRopa(Ropa(0, nombre, precio))
+        db.insertarRopa(Ropa(0, nombre, precio, marca))
     }
 
-    private val CHANNEL_ID: String = "Agregar Ropa"
 
-    private fun createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "Agregar ropa"
-            val descriptionText = "Se notificara en el momento que se agrego un ropa"
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
-                description = descriptionText
-            }
-
-            val notificationManager: NotificationManager =
-                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
-        }
-    }
 }

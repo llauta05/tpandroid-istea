@@ -9,6 +9,7 @@ class DBConstants {
         val TABLA_ROPA = "ROPA"
         val ID = "Id"
         val NOMBRE_ROPA = "Nombre"
+        val MARCA_ROPA = "Marca"
         val PRECIO_ROPA = "Precio"
     }
 }
