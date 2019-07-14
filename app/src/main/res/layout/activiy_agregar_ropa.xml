@@ -53,6 +53,8 @@
             android:id="@+id/btnAccion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="32dp"
-            android:text="@string/Guardar" />
+            android:layout_margin="50dp"
+            android:text="@string/agregar" android:background="#FFEB3B" android:elevation="20dp"
+            android:backgroundTint="#FFEB3B" android:backgroundTintMode="add" android:contextClickable="true"
+            android:clickable="true" />
 </LinearLayout>

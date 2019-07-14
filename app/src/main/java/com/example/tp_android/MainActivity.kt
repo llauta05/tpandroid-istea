@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
@@ -53,16 +54,16 @@ class MainActivity : AppCompatActivity() {
 
         ropasAdapter = RopaAdapter(ArrayList(), object : OnRopaClickListener {
             override fun onItemClick(ropa: Ropa) {
-
                 ConfirmarCompra(ropa)
+            }
+            override fun onItemClickEdit(ropa: Ropa) {
 
-//                val alertDialog = AlertDialog.Builder(this@MainActivity)
-//                alertDialog.setTitle(ropa.nombre)
-//                    .setMessage("El precio es: ${ropa.precio}")
-//                    .setPositiveButton("OK", { dialog, _ -> dialog.dismiss() })
-//                    .setNeutralButton("MODIFICAR", { dialog, _ -> goToModificar(ropa) })
-//                    .setNegativeButton("ELIMINAR", { dialog, _ -> eliminarRopa(ropa) })
-//                    .show()
+                val alertDialog = AlertDialog.Builder(this@MainActivity)
+                alertDialog.setTitle(ropa.nombre)
+                    .setPositiveButton(Html.fromHtml("<font color='#000000'>Ok</font>"), { dialog, _ -> dialog.dismiss() })
+                    .setNeutralButton(Html.fromHtml("<font color='#000000'>Modificar</font>"), { dialog, _ -> goToModificar(ropa) })
+                    .setNegativeButton(Html.fromHtml("<font color='#000000'>Eliminar</font>"), { dialog, _ -> eliminarRopa(ropa) })
+                    .show()
             }
 
         })

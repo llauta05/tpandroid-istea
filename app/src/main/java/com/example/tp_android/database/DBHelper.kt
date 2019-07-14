@@ -47,7 +47,7 @@ class DBHelper(context: Context) :
                 val precio = cursor.getString(cursor.getColumnIndex(PRECIO_ROPA))
                 val marca = cursor.getString(cursor.getColumnIndex(MARCA_ROPA))
 
-                ropas.add(Ropa(id, nombre, "$$precio",marca))
+                ropas.add(Ropa(id, nombre, precio,marca))
                 cursor.moveToNext()
             }
         }
