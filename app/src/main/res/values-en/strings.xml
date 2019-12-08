@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SportShop</string>
+    <string name="agregar">Add</string>
+    <string name="Guardar">Save</string>
+    <string name="modificar">Update</string>
+    <string name="nameApp">Sport Shop</string>
+    <string name="confirmacion">Mail</string>
+    <string name="comprar">Buy</string>
+    <string name="opciones">Settings</string>
+    <string name="nueva_indumentaria">New Clothing</string>
+    <string name="ingresar_nombre">Name</string>
+    <string name="ingresar_marca">Brand</string>
+    <string name="ingresar_precio">Price</string>
+    <string name="CambiarColor">Change Color</string>
+    <string name="userName">User Name</string>
+</resources>

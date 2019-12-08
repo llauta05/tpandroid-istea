@@ -1,17 +1,12 @@
 package com.example.tp_android
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
-import android.content.Context
+
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.NotificationCompat
 import com.example.tp_android.database.DBHelper
 
 class AgregarRopaActivity : AppCompatActivity(){
@@ -32,6 +27,7 @@ class AgregarRopaActivity : AppCompatActivity(){
 
         setupUI()
         initializeBtnAgregar()
+
     }
 
     private fun initializeBtnAgregar() {
@@ -67,6 +63,7 @@ class AgregarRopaActivity : AppCompatActivity(){
             etPrecio.setText(ropa?.precio)
             etMarca.setText(ropa?.marca)
         }
+
     }
 
     private fun modificarRopa() {

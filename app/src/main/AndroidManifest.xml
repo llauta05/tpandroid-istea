@@ -9,9 +9,15 @@
             android:roundIcon="@drawable/mountain"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".AgregarRopaActivity"></activity>
-        <activity android:name=".SplashScreenActivity" android:noHistory="true"
-        android:theme="@style/AppSplash">
+        <activity android:name=".SettingFragment">
+        </activity>
+        <activity android:name=".SettingActivity">
+        </activity>
+        <activity android:name=".AgregarRopaActivity"/>
+        <activity
+                android:name=".SplashScreenActivity"
+                android:noHistory="true"
+                android:theme="@style/AppSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -19,10 +25,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity">
-
-    </activity>
+        </activity>
         <activity android:name=".ConfimarCompraActivity">
-
         </activity>
     </application>
 

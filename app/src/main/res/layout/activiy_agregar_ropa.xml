@@ -4,6 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:gravity="center_horizontal"
+              android:background="@color/backgroundGlobal"
               tools:context=".AgregarRopaActivity"
 >
 
@@ -11,13 +12,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="24dp"
-            android:text="Nueva Indumentaria"
+            android:text="@string/nueva_indumentaria"
             android:textSize="22sp" />
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ingresar nombre" />
+            android:text="@string/ingresar_nombre" />
 
     <EditText
             android:id="@+id/etNombre"
@@ -30,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Ingresar Marca" />
+            android:text="@string/ingresar_marca" />
     <EditText
             android:id="@+id/etMarca"
             android:layout_width="wrap_content"
@@ -40,12 +41,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Ingresar precio" />
+            android:text="@string/ingresar_precio" />
 
     <EditText
             android:id="@+id/etPrecio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/texto"
             android:ems="10" />
 
 
@@ -54,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="50dp"
-            android:text="@string/agregar" android:background="#FFEB3B" android:elevation="20dp"
-            android:backgroundTint="#FFEB3B" android:backgroundTintMode="add" android:contextClickable="true"
+            android:text="@string/agregar" android:background="@color/texto" android:elevation="20dp"
+            android:backgroundTint="@color/backgroundGlobal" android:backgroundTintMode="add" android:contextClickable="true"
             android:clickable="true" />
 </LinearLayout>

@@ -6,5 +6,9 @@
             android:id="@+id/addRopa"
             android:title="@string/agregar"
             app:showAsAction="ifRoom" />
+    <item
+            android:id="@+id/btnSettings"
+            android:title="@string/opciones"
+            app:showAsAction="ifRoom" />
 
 </menu>

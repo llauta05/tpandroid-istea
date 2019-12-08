@@ -1,20 +1,30 @@
 package com.example.tp_android
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.text.Html
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tp_android.database.DBHelper
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var userName: String
+    private var cambiarColor: Boolean = false
+
     lateinit var rvRopa: RecyclerView
+    lateinit var lyMain: LinearLayout
     lateinit var toolbar: Toolbar
 
     lateinit var ropasAdapter: RopaAdapter
@@ -28,11 +38,27 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        asignarValoresSettings()
 
         setupUI()
         setupToolbar()
+        Toast.makeText(this, "$userName", Toast.LENGTH_LONG).show()
+        if (cambiarColor) {
+            lyMain = findViewById(R.id.mainLayout)
+            lyMain.setBackgroundColor(Color.BLACK)
+            toolbar.setBackgroundColor(Color.GRAY)
+            rvRopa.setBackgroundColor(Color.GRAY)
+        }
     }
 
+
+
+    private fun asignarValoresSettings() {
+        val pref = PreferenceManager.getDefaultSharedPreferences(this)
+
+        userName = pref.getString("etUserName", "Algo").orEmpty()
+        cambiarColor = pref.getBoolean("chkColor", false)
+    }
     override fun onResume() {
         super.onResume()
         actualizarRopas()
@@ -45,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupToolbar() {
        setSupportActionBar(toolbar)
-       supportActionBar?.title = "Sports Shop"
+       supportActionBar?.title = "Sport Shop"
     }
 
     private fun setupUI() {
@@ -109,6 +135,12 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(MODALIDAD, AGREGAR)
             startActivity(intent)
         }
+
+        if (item.itemId == R.id.btnSettings) {
+            val intent = Intent(this, SettingActivity::class.java)
+            startActivity(intent)
+        }
+
         return super.onOptionsItemSelected(item)
     }
 

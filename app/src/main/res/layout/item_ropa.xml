@@ -8,12 +8,17 @@
 >
 
     <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp" card_view:cardBackgroundColor="#FFEB3B" card_view:cardCornerRadius="60dp"
-            card_view:contentPadding="15dp" card_view:cardUseCompatPadding="true">
+            card_view:cardCornerRadius="6dp"
+            card_view:cardElevation="5dp"
+            card_view:cardUseCompatPadding="true"
+            card_view:cardPreventCornerOverlap="false"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="1dp" card_view:cardBackgroundColor="@color/cardView"
+            card_view:contentPadding="1dp" >
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -21,7 +26,7 @@
             <ImageView
                     android:id="@+id/idImagen"
                     android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_height="161dp"
                     android:src="@drawable/remera"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="10dp"/>
@@ -36,7 +41,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="25sp"
+                        android:textSize="30sp"
                         android:textStyle="bold"
                         android:text="Nombre"/>
                 <TextView
@@ -52,8 +57,6 @@
                         android:id="@+id/txtPrecio"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:layout_marginRight="10dp"
                         android:textSize="20sp"
                         android:text="$"/>
 
@@ -63,8 +66,8 @@
                         android:layout_height="50dp"
                         android:src="@drawable/buy"
                         android:layout_marginTop="15dp"
-                        android:layout_marginLeft="150dp"
-                        android:layout_marginRight="100dp"/>
+                        android:layout_marginLeft="220dp"
+                        android:layout_marginRight="10dp"/>
             </LinearLayout>
 
 
